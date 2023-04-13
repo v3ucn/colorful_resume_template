@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="applicable-device" content="pc,mobile" />
+    <title>简历</title>
+    <style>
+
+/* 简历前景色和背景色 */
+:root{
+   --bg-color:#005BBB;
+   --font-color:#FFD500;
+}
+
+/* 简历字体 */
+@font-face {
+font-family: mFont;
+src: url('./fonts/北魏楷书字体.ttf');
+}
+        body{
+            font-family:mFont;
+            background-color: var(--bg-color);
+            color: var(--font-color);
+    }
+    .main_font_color {
+  color: var(--font-color);
+}
+
+.item_title_text_size {
+  font-size: 1.1em;
+}
+.list_text_size {
+  font-size: 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+ul {
+  color: color: var(--font-color);
+  margin: 0;
+  font-weight: 100;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  margin-bottom: .25em;
+}
+a {
+  cursor: pointer;
+  color: color: var(--font-color);
+}
+section {
+  margin-top: 1em;
+}
+.resume {
+  font-size: 16px;
+  padding: .8em 3em;
+  overflow: hidden;
+}
+.keyword {
+  font-weight: 900 !important;
+}
+.section_title {
+  margin-bottom: .8em;
+}
+.section_title .zh_title {
+  margin: 0;
+  font-size: 1.3em;
+}
+.section_title .en_title {
+  font-size: 1em;
+}
+.annotation {
+  font-size: .8em;
+  margin-left: .2em;
+}
+.item h1 {
+  font-size: 1.1em;
+  margin-bottom: .5em;
+}
+.item h2 {
+  font-size: 1em;
+}
+.item ul {
+  padding-left: 1.3em;
+}
+.item li {
+  font-size: 1em;
+  line-height: 140%;
+}
+.item .display {
+  padding-top: .1em;
+}
+.item .display a {
+  margin-right: .3em;
+}
+
+.default header {
+  overflow: hidden;
+  margin-top: .3em;
+}
+.main_info {
+  float: left;
+}
+.main_info .name {
+  font-size: 3.5em;
+  margin-bottom: .2em;
+}
+.main_info .intension{
+    font-size:1em;
+}
+.other_basic_info {
+  margin-top: .7em;
+  margin-right: 3px;
+  float: right;
+}
+.other_basic_info li {
+  list-style: none;
+  font-style: italic;
+  margin: .25em 0;
+}
+.other_basic_info li a {
+  text-decoration: none;
+}
+.experience-item {
+  overflow: hidden;
+}
+.experience-item .item_duration {
+  float: left;
+  width: 15%;
+  font-size: 14px;
+  color:var(--font-color);
+}
+.default .experience-item .item_content {
+  float: right;
+  width: 79%;
+}
+.default .experience-item .item_content .main-info {
+  margin-bottom: 5px;
+}
+.default .experience-item .item_content .description {
+  margin-top: 0px;
+  overflow: hidden;
+}
+.default .section_title .zh_title {
+  position: relative;
+  padding-left: 12px;
+}
+.default .section_title .zh_title:before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 18px;
+  background-color: var(--font-color);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.default .section_title .en_title {
+  display: none;
+}
+.default .first_section {
+  width: 50%;
+  float: left;
+  padding-right: 1.5em;
+  box-sizing: border-box;
+}
+.default .second_section {
+  width: 50%;
+  float: right;
+  padding-left: .8em;
+  box-sizing: border-box;
+}
+.default .education .education-content {
+  padding-left: 0;
+}
+.default .education .education-content li {
+  list-style: none;
+}
+.default .education .education-item {
+  overflow: hidden;
+}
+.default .education .education-item .item_duration {
+  float: left;
+  width: 25%;
+}
+.default .education .education-item .item_content {
+  float: right;
+  width: 75%;
+}
+.default .education .school {
+  margin-bottom: .2em;
+}
+.default .education .major {
+  margin-bottom: .2em;
+}
+.default .education .ranking {
+  font-size: 1em;
+}
+.default .education .ranking:before {
+  content: "排名：";
+}
+.default .language .cet {
+  margin-bottom: .4em;
+}
+.default .language ul {
+  padding-left: 1em;
+}
+.default .experience ul {
+  padding-top: .15em;
+}
+.default .experience .item {
+  margin-bottom: .7em;
+}
+.default .skills .item {
+  margin-bottom: .3em;
+}
+.default .skills .item_content,
+.default .selfe .item_content {
+  width: 100%;
+}
+.default .projects .project-content {
+  padding-left: 0em;
+}
+.default .projects .project-item {
+  list-style: none;
+  margin-bottom: 15px;
+}
+.default .projects .project-item h1 {
+  margin-bottom: 5px;
+}
+.default .projects .project-item h2 {
+  margin-top: 0px;
+}
+.default .projects .project-item .display {
+  float: right;
+}
+.default .display {
+  margin-top: 5px;
+  font-size: 13px;
+}
+@media print {
+  .default .display {
+    display: none;
+  }
+}
+@media screen and (max-width: 780px) {
+  .default .first_section {
+    float: none;
+    width: 100%;
+    padding: 0;
+  }
+  .default .second_section {
+    padding: 0;
+    width: 100%;
+    float: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .default .main_info {
+    position: static;
+    padding-right: 2em;
+  }
+  .default .main_info .name {
+    font-size: 3.1em;
+  }
+  .default .main_info .intension {
+    font-size: 0.9em;
+  }
+  .default .other_basic_info {
+    padding: 0;
+    float: left;
+  }
+}
+@media screen and (max-width: 440px) {
+  .resume {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+    </style>
+  </head>
+  <body>
+
+   <div class="resume default" >
+    <header>
+        <div class="main_info">
+            <h1 class="name">刘悦</h1>
+            <h2 class="intension">乐于助人的敏捷开发者</h2>
+        </div>
+        <ul class="other_basic_info">
+            <li>QQ:164850527</li>
+            <li>Mail:zcxey2911@gmail.com</li>
+            <li>Github:<a target="_blank" href="https://github.com/zcxey2911">https://github.com/zcxey2911</a></li>
+            <li>Twitter:<a target="_blank" href="https://twitter.com/v3ucom">https://twitter.com/v3ucom</a></li>
+            <li>Blog:<a target="_blank" href="https://v3u.cn">v3u.cn</a></li>
+         
+        </ul>
+    </header>
+
+    <div class="first_section">
+        <section class="education">
+            <div class="section_title">
+                <h1 class="zh_title">教育经历</h1>
+                <h2 class="en_title">Education</h2>
+            </div>
+            <ul class="education-content">
+              <li v-for="eduitem in resume.education">
+                <div class="item education-item">
+                    <div class="item_duration">2004-2008</div>
+                    <div class="item_content">
+                        <h1 class="school">
+                            北京交通大学
+                           
+                        </h1>
+                      
+
+                      
+                    </div>
+                </div>
+              </li>
+            </ul>
+        </section>
+
+        <section class="skills">
+            <div class="section_title">
+                <h1 class="zh_title">技能</h1>
+                <h2 class="en_title">Skills</h2>
+            </div>
+
+            <div v-for="item in resume.skills" class="item">
+                <div class="item_content">
+                    <h1>前端</h1>
+                    <ul>
+                        <li >
+                          熟练使用<span class="keyword">Vue.js、React</span>等渐进式框架。
+                        </li>
+                        <li >
+                          对前端工程化、模块化有自己的理解，掌握<span class="keyword">原生JS</span>。
+                        </li>
+                        <li >
+                          熟悉前端<span class="keyword">app、小程序生态圈，有自己维护的成熟产品(Uniapp/Mpvue)</span>
+                        </li>
+                        <li >
+                          掌握<span class="keyword">HTML5/CSS3</span>，有一定的设计能力，熟练使用<span class="keyword">FCPX</span>，有视频拍摄/剪辑经验。
+                        </li>
+                    </ul>
+                    <h1>后端</h1>
+                    <ul>
+                        <li >
+                          掌握<span class="keyword">Python</span>，熟练使用相关Web框架如:<span class="keyword">FastAPI、Flask、Django、Tornado</span>。
+                        </li>
+                        <li >
+                          掌握<span class="keyword">Ruby元编程</span>，熟练使用<span class="keyword">Rails</span>。
+                        </li>
+                        <li >
+                          熟悉<span class="keyword">Go lang、Lua、Rust</span>等语言，秉承语言工具化理念。
+                        </li>
+                    </ul>
+                    <h1>其他</h1>
+                    <ul>
+                        <li >
+                          日常开发环境:<span class="keyword">Mac os + Vim</span>，熟练使用<span class="keyword">Unix</span>内核系统掌握相关操作命令。
+                        </li>
+                        <li >
+                          <span class="keyword">Docker</span>重度使用者，掌握其运行原理和扩展。
+                        </li>
+                        <li >
+                          掌握<span class="keyword">Git</span>，有管理和组织协作经验。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section v-if="resume.selfe.show" class="selfe">
+            <div class="section_title">
+                <h1 class="zh_title">自我评价</h1>
+                <h2 class="en_title">Self-evaluation</h2>
+            </div>
+
+            <div class="item">
+                <div class="item_content">
+                    <ul>
+                        <li>
+                        稳定而高效、不急功近利亦不一味盲从。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="projects">
+
+            <div class="section_title">
+                <h1 class="zh_title">Github</h1>
+                <h2 class="en_title">Projects</h2>
+            </div>
+
+
+
+            <div align="center" dir="auto">
+                <span>  </span>
+                <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/6ebfb9fddf67327229bcfa40cac923b25cb4b452b9e1d9afbd6ce9165cda5158/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170693f757365726e616d653d7a6378657932393131">
+                    <img src="https://camo.githubusercontent.com/6ebfb9fddf67327229bcfa40cac923b25cb4b452b9e1d9afbd6ce9165cda5158/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170693f757365726e616d653d7a6378657932393131" data-canonical-src="https://github-readme-stats.vercel.app/api?username=zcxey2911" style="width: 100%;"></a><span>  </span><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/10b035cd56e1f010186c55992461d36eb9ea6ff70623ee26d8bdda6c71e9ba9b/68747470733a2f2f6769746875622d726561646d652d73746174732e76657263656c2e6170702f6170692f746f702d6c616e67732f3f757365726e616d653d7a6378657932393131266c61796f75743d636f6d70616374266c616e67735f636f756e743d3130267468656d653d6d65726b6f"></a>
+                        
+               
+                </div>
+
+
+
+        </section>
+
+
+    </div>
+
+    <div class="second_section">
+        <section class="experience">
+            <div class="section_title">
+                <h1 class="zh_title">工作经历</h1>
+            </div>
+
+            <div class="item experience-item">
+                <div class="item_duration">2018.10-至今</div>
+                <div class="item_content">
+                    <h1 class="main-info">
+                       积云教育(北京优思安科技有限公司) | 
+                        <span class="annotation">Python讲师</span>
+                    </h1>
+                    <h2 class="description" ></h2>
+                    <ul>
+                        <li>
+                          日常线下/线上授课任务，教材/考试题/编写。
+                        </li>
+                        <li>
+                          授课视频录制/线下培训，作为项目经理指导毕业生找工作。
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="item experience-item">
+                <div class="item_duration">2017.08-2018.10</div>
+                <div class="item_content">
+                    <h1 class="main-info">
+                       钱方好近(北京/吉隆坡)有限公司 | 
+                        <span class="annotation">高级Python开发</span>
+                    </h1>
+                    <h2 class="description" ></h2>
+                    <ul>
+                        <li>
+                          跨境支付业务系统构建、维护。
+                        </li>
+                        <li>
+                          后台审核系统日常开发和维护。
+                        </li>
+                        <li>
+                          DevOps运维系统重构与线上迁移。
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="item experience-item">
+                <div class="item_duration">2015.08-2017.07</div>
+                <div class="item_content">
+                    <h1 class="main-info">
+                       阿里巴巴集团(大文娱事业部) | 
+                        <span class="annotation">后台研发(P6)</span>
+                    </h1>
+                    <h2 class="description" ></h2>
+                    <ul>
+                        <li>
+                          用户/视频测写平台开发，数据分析。
+                        </li>
+                        <li>
+                          后台审核系统日常开发和维护。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="item experience-item">
+                <div class="item_duration">2008.09-2015.08</div>
+                <div class="item_content">
+                    <h1 class="main-info">
+                       优酷土豆集团(合一网络技术北京有限公司) | 
+                        <span class="annotation">全栈开发</span>
+                    </h1>
+                    <h2 class="description" ></h2>
+                    <ul>
+                        <li>
+                          优酷移动端日志收集和分析、平台数据展示。
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="projects">
+            <div class="section_title">
+                <h1 class="zh_title">个人项目</h1>
+                <h2 class="en_title">Projects</h2>
+            </div>
+            <ul class="project-content">
+            <li class="item project-item">
+                <h1>
+                    微信小程序在线查询题库
+       
+                    <div class="display">
+                        <a target="_blank" href="https://gitee.com/QiHanXiBei/mytornado" >源代码</a>
+                        <a target="_blank" href="https://v3u.cn/v3u/Public/images/logo200.jpg" >演示</a>
+                    </div>
+                </h1>
+            </li>
+
+            <li class="item project-item">
+                <h1>
+                    Chrome实时随机面试题插件
+       
+                    <div class="display">
+                        <a target="_blank" href="https://github.com/zcxey2911/chrome_v3u" >源代码</a>
+                    </div>
+                </h1>
+            </li>
+            </ul>
+        </section>
+
+        
+
+
+    </div>
+</div>
+
+
+    
+  </body>
+</html>
